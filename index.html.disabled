@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+    <title>Maksim Dziatlovich | Undergraduate student at McCormick’s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.</title>
+    <meta name="generator" content="Jekyll v4.2.1" />
+    <meta property="og:title" content="Maksim Dziatlovich" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Undergraduate student at McCormick’s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer." />
+    <meta property="og:description" content="Undergraduate student at McCormick’s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer." />
+    <link rel="canonical" href="http://localhost:4000/" />
+    <meta property="og:url" content="http://localhost:4000/" />
+    <meta property="og:site_name" content="Maksim Dziatlovich" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Maksim Dziatlovich" />
+    <script type="application/ld+json">
+        {
+            "@type": "WebSite",
+            "url": "http://localhost:4000/",
+            "headline": "Maksim Dziatlovich",
+            "name": "Maksim Dziatlovich",
+            "description": "Undergraduate student at McCormick’s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.",
+            "@context": "https://schema.org"
+        }
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Maksim Dziatlovich" />
+    <link rel="icon" 
+      type="image/png" 
+      href="/favicon.png">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+
+        <div class="wrapper nav-bar">
+            <div class="site-title">
+                <!-- <div class="logo-wrapper">
+                    <img class="logo" src="logo_before.svg" />
+                    <img class="logo" src="logo.svg" />
+                </div> -->
+                <div class="logo-wrapper-text">
+                    <p class="logo-name" style="color: white; font-weight: 200;">Maksim</p>
+                    <p class="logo-name" style="color: white; font-weight: 700;"> Dziatlovich</p>
+                    <p class="logo-name" style="color: rgb(214, 164, 255); font-weight: 700; margin-left: -3px">.</p>
+                </div>
+                <a class="author" rel="author" href="/"></a>
+            </div>
+            <div class="site-nav">
+                <div class="nav-right">
+                    <a class="page-link link-active" href="/">Home</a>
+                    <a class="page-link link-inactive" href="/projects/">Engineering</a>
+                    <a class="page-link link-inactive" href="/portfolio/">Design</a>
+                    <a class="page-link link-inactive" href="/contact/">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <subheader class="showcase">
+        <div class="wrapper-sc">
+            <div class="name">
+                <div class="regular-text">
+                    <p style="font-size: 16px; letter-spacing: 1px; color: gray">HELLO</p>
+                </div>
+                <div class="large-text">
+                    <p>I'm Maksim</p>
+                    <p style="color: #6c5d7c;">.</p>
+                </div>
+                <p class="sub-title">
+                    Undergraduate student at McCormick School of Engineering, Northwestern University. Mechanical engineer, graphic and motion designer.
+                </p>
+            </div>
+            <div class="separator">
+                <p>-----</p>
+            </div>
+            <div class="actions">
+                <a href="/assets/files/pdf/test_cv.pdf" target="_blank" rel="noopener noreferrer">
+                    <button class="filled" style="margin-right: 10px;">
+                        <p>OPEN RESUME</p>
+                    </button>
+                </a>
+                <a href="/portfolio/">
+                    <button class="empty">
+                        <p>VIEW PROJECTS</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="profile">
+            <img width="400px" src="assets/files/png/profile.png" />
+        </div>
+    </subheader>
+    <div class="highlights">
+        <div class="wrapper hl">
+            <div class="item">
+                <div class="icon">
+                    <img class="filter-link-active" src="assets/icons/gear.svg" />
+                </div>
+                <div class="text">
+                    <h3 class="title">Manufacturing</h3>
+                    <p>
+                        A variety of manufacturing skills ranging from basic tools to casting, molding, and CNC machining.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">
+                    <img class="filter-link-active" src="assets/icons/pencil-square.svg" />
+                </div>
+                <div class="text">
+                    <h3 class="title">Engineering</h3>
+                    <p>
+                        Over 2 years of experience in CAD and simulation, product design, and ongoing projects in robotics and control.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">
+                    <img class="filter-link-active" src="assets/icons/vector-pen.svg" />
+                </div>
+                <div class="text">
+                    <h3 class="title">Design</h3>
+                    <p>Over 5 years of experience in UI/UX, graphic, and motion design. Social media graphics, yearbooks, posters, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <div class="home">
+                <h2 class="post-list-heading">Project Highlights</h2>
+                <ul class="post-list">
+                    
+                </ul>
+            </div>
+
+        </div>
+    </main>
+    <footer class="site-footer h-card">
+        <data class="u-url" href="/"></data>
+
+        <div class="wrapper">
+            <div class="footer-heading">
+                <div class="logo-wrapper-text">
+                    <p class="logo-name" style="color: rgb(24, 24, 24); font-weight: 400;">Maksim</p>
+                    <p class="logo-name" style="color: rgb(24, 24, 24); font-weight: 700;"> Dziatlovich</p>
+                    <p class="logo-name" style="color: rgb(110, 84, 131); font-weight: 700; margin-left: -3px">.</p>
+                </div>
+            </div>
+
+            <div class="footer-col-wrapper">
+                <div class="footer-col footer-col-1">
+                    <ul class="contact-list">
+                        <li class="p-name">Maksim Dziatlovich</li>
+                        <li><a class="u-email" href="mailto:mdziatlovich@gmail.com">mdziatlovich@gmail.com</a></li>
+                        <li class="p-name"><a href="tel:872-810-5249">(872) 810-5249</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col-2">
+                    <ul class="social-media-list">
+                        <li><a href="https://github.com/dziatlovich"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">dziatlovich</span></a></li>
+                        <li><a href="https://www.twitter.com/bakasigma"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bakasigma</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col-3">
+                    <p>Undergraduate student at McCormick&#39;s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

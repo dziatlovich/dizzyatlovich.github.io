@@ -1,0 +1,77 @@
+/* CSS specific for contact page only */
+
+.showcase .contact-list {
+    margin-top: 15px;
+}
+
+.showcase .contact-list li {
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.showcase .contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+
+/* Contact Form (Taken from w3schools.com) */
+
+
+/* Style inputs with type="text", select elements and textareas */
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* Add a top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: vertical/* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+/* Style the submit button with a specific background color etc */
+
+input[type=submit] {
+    padding: 10px 33px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    border-radius: 3px;
+    background: var(--color-link-active);
+    border: solid 2px var(--color-link-active);
+    color: white;
+}
+
+
+/* When moving the mouse over the submit button, add a darker green color */
+
+input[type=submit]:hover {
+    background: var(--color-link-active-hover);
+    border: solid 2px var(--color-link-active-hover);
+    color: var(--color-background);
+    transition: 0.01s ease-in;
+}
+
+
+/* Add a background color and some padding around the form */
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
