@@ -93,3 +93,7 @@
     margin-left: -7px;
     color: var(--color-text);
 }
+
+.showcase-post .name {
+    margin-top: 50px;
+}

@@ -599,6 +599,7 @@ table td {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 32px;
+    grid-row-gap: 20px;
     list-style: none;
     margin-left: 0;
 }

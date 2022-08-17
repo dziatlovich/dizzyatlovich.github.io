@@ -1,1 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-30T23:58:46-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Maksim Dziatlovich</title><subtitle>Undergraduate student at McCormick&apos;s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.</subtitle><entry><title type="html">Custom Gibson Les Paul</title><link href="http://localhost:4000/jekyll/update/2021/10/13/les-paul.html" rel="alternate" type="text/html" title="Custom Gibson Les Paul" /><published>2021-10-13T19:18:27-05:00</published><updated>2021-10-13T19:18:27-05:00</updated><id>http://localhost:4000/jekyll/update/2021/10/13/les-paul</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/13/les-paul.html">&lt;p&gt;Work in progress&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Work in progress</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/les-paul-1.jpg" /><media:content medium="image" url="http://localhost:4000/les-paul-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Aperture Science Sentry Turret</title><link href="http://localhost:4000/jekyll/update/2021/08/11/sentry-turret.html" rel="alternate" type="text/html" title="Aperture Science Sentry Turret" /><published>2021-08-11T13:11:22-05:00</published><updated>2021-08-11T13:11:22-05:00</updated><id>http://localhost:4000/jekyll/update/2021/08/11/sentry-turret</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/11/sentry-turret.html">&lt;p&gt;Work in progress&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Work in progress</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/turret-1.jpg" /><media:content medium="image" url="http://localhost:4000/turret-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-08-16T23:37:12-05:00</updated><id>/feed.xml</id><title type="html">Maksim Dziatlovich</title><subtitle>Undergraduate student at McCormick&apos;s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.</subtitle><entry><title type="html">Self-Driving Robot</title><link href="/jekyll/update/2021/10/13/self-driving-robot.html" rel="alternate" type="text/html" title="Self-Driving Robot" /><published>2021-10-13T19:18:27-05:00</published><updated>2021-10-13T19:18:27-05:00</updated><id>/jekyll/update/2021/10/13/self-driving-robot</id><content type="html" xml:base="/jekyll/update/2021/10/13/self-driving-robot.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This project started while I was taking an Advanced Mechatronics class towards my graduate degree, as a way to 
+test my skills and create something fun. After some consideration, I decided to try and design a fairly
+simple “self-driving car”, albeit the extent of “self-driving” is just to follow a marked path on a race track.
+The project took me about 2 months to complete from start to finish.&lt;/p&gt;
+
+&lt;h2 id=&quot;first-step&quot;&gt;First step&lt;/h2&gt;
+&lt;p&gt;I started by laying out the requirements for my project as well as how to meet them.
+I really wanted to achieve a few fairly simple things:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Be able to follow a line on a track with at least 80% accuracy in position;&lt;/li&gt;
+  &lt;li&gt;Be easy to build;&lt;/li&gt;
+  &lt;li&gt;Be easy to code&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The last step didn’t work particularly well, and it was wishful thinking on my part. I decided that it would be
+best to use two controllers for this project - “big brain” data processing one, for which I chose a RPi Pico,
+and a “barebones” commands giving one - a simple PIC32.&lt;/p&gt;
+
+&lt;h2 id=&quot;design-specifics&quot;&gt;Design specifics&lt;/h2&gt;
+&lt;p&gt;RPi Pico was going to collect the visual data from the camera attached to the robot to identify the environment,
+a line on the track, in particular. That data would then be fed into a PID controller which will tell the robot whether
+to go left or right. Since I didn’t want to deal with proper steering, I decided it would be most optimal to change 
+direction by changing the rotation of each wheel - so I went with a front-wheels-only design, where each wheel is managed
+run by its own motor.&lt;/p&gt;
+
+&lt;p&gt;Each motor was then connected to an H-bridge, which would send the data to the RPi Pico, which in turn would be again fed into
+the PID controller. The output of that would then be sent to the PIC32 which was to drive the motors. The design was fairly
+straightforward in my mind, so I started working on it.&lt;/p&gt;
+
+&lt;h2 id=&quot;pcbs-and-cad&quot;&gt;PCBs and CAD&lt;/h2&gt;
+&lt;p&gt;I started by laying out designs for PCBs that would hold Pico and PIC; after estimating the dimensions of all the components,
+I threw a few ideas together for a prototype CAD model - I needed something that would be very easy to prototype and change when needed,
+so the requirements were:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Laser cut or 3D printed, preferrably the former&lt;/li&gt;
+  &lt;li&gt;As few screws as possible, preferrably none&lt;/li&gt;
+  &lt;li&gt;As light as possible, so probably made out of plastic&lt;/li&gt;
+  &lt;li&gt;As easy to put together as possible&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I ultimately went with a design my professor advised me based on his experience of rapid prototyping.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../assets/files/png/self-driving-2.png&quot; alt=&quot;CAD Model&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The next step was to design the PCBs. For space purposes, I went with a main board with a PIC32, and a daughter board with a Pico (albeit the
+hierarchy is only decided by size here). I threw together schematics, designed the PCBs, checked if they were fine, then ordered a few.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../assets/files/png/self-driving-3.png&quot; alt=&quot;PIC32 PCB Schematic&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;assembly&quot;&gt;Assembly&lt;/h2&gt;
+&lt;p&gt;After the PCBs arrived, I went ahead and soldered all the components on them, checked if my test code still worked the same as it did on
+the breadboard that I put together while waiting for the PCBs. &lt;strong&gt;Spoiler:&lt;/strong&gt; trying to get as clean of a soldering job as I could, I didn’t put
+enough solder on some contacts, so it didn’t work right away. Oh well!&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/self-driving-3.jpg&quot; width=&quot;300px&quot; /&gt; &lt;img src=&quot;../../../../../assets/files/jpg/self-driving-4.jpg&quot; width=&quot;300px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;I also laset cut my robot parts from black ABS plastic, and put everything together. Wheels were 3D printed (took a few tries), 2 motors were ordered online.
+All the other parts (the camera, the battery pack, screws, etc) I either had previously, or scavenged from the mechatronics lab.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/self-driving-5.jpg&quot; width=&quot;300px&quot; /&gt; &lt;img src=&quot;../../../../../assets/files/jpg/self-driving-6.jpg&quot; width=&quot;300px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+&lt;p&gt;It was then time to &lt;em&gt;actually&lt;/em&gt; code this puppy.&lt;/p&gt;
+
+&lt;p&gt;I am not going to have a long write-up regarding code here; instead, I’ll just list the structure and the algorithms I chose to go with.
+The majority of the code was written in Python, except for the PIC parts which were coded in C.&lt;/p&gt;
+
+&lt;p&gt;The first step was camera input. To distinguish the track from the rest of the environment, I had a few ideas I could implement:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Machine learning&lt;/li&gt;
+  &lt;li&gt;Some sort of image processing and line recognition that didn’t rely on ML&lt;/li&gt;
+  &lt;li&gt;Straightforward hardcoded approach&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I went with the second option by taking the advantage of the goal of my project: I simply wanted the robot to follow the markings on the track. 
+Since the markings were going to be painted in a bright color, like green or white, against a dark track, I could search for those directly.
+I didn’t know which color I wanted to use, and I also wanted it to work with any color, so I went with the following approach:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Record an image from the camera&lt;/li&gt;
+  &lt;li&gt;Convert the image from RGB to HSV&lt;/li&gt;
+  &lt;li&gt;Take 3 height positions along the image, and isolate single-pixel lines along them&lt;/li&gt;
+  &lt;li&gt;For each line, identify where the dark pixels started and ended, identifying thus the track&lt;/li&gt;
+  &lt;li&gt;Look for bright pixels along the track&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once I identified the markings in 3 positions along the image, I created a line of best fit to map out the route the robot would have to take.
+I then looked at whether the point closest to the bottom of the image (and thus closest to the robot) was off-center or not, computed that
+distance, and sent it to my position control. I checked how much my best-fit curved to identify a turn, and sent the proximity data of the turn
+to my current control (the closer the robot was to a turn, the more current I would send to one motor and less to the other, thus steering it along the right path). 
+Motors were driven using PWM.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;All in all, the project ended up being fairly successful. I achieved an average of 18.5% error in current control on my worst run (image below), 
+and overall less than 12% error in current control and an (estimated) less than 20% error in position control.&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/png/self-driving-4.png&quot; /&gt;
+&lt;/center&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Introduction This project started while I was taking an Advanced Mechatronics class towards my graduate degree, as a way to test my skills and create something fun. After some consideration, I decided to try and design a fairly simple “self-driving car”, albeit the extent of “self-driving” is just to follow a marked path on a race track. The project took me about 2 months to complete from start to finish.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/self-driving-1.jpg" /><media:content medium="image" url="/self-driving-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Custom Gibson Les Paul</title><link href="/jekyll/update/2021/10/13/les-paul.html" rel="alternate" type="text/html" title="Custom Gibson Les Paul" /><published>2021-10-13T19:18:27-05:00</published><updated>2021-10-13T19:18:27-05:00</updated><id>/jekyll/update/2021/10/13/les-paul</id><content type="html" xml:base="/jekyll/update/2021/10/13/les-paul.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This project started when I enrolled into the university and first found out that there was a workshop.
+My roommate has built his own guitar in the past, and as I was learning the guitar, I decided to give it a go as well.
+At the time, I didn’t possess all the necessary skills to complete the project, but I was dead set on making it a reality.&lt;/p&gt;
+
+&lt;p&gt;I did some research, and realized that going the traditional route of hand-crafting a guitar was wishful thinking on my part.
+The skillset required was not only not available to me, but I couldn’t hope to perfect it over my years at the university.
+So, as an up and coming engineer, I went with a simpler (arguably, harder) approach of using tools to do the work for me.
+I just had to spend a few weeks doing all the design work.&lt;/p&gt;
+
+&lt;h2 id=&quot;cad&quot;&gt;CAD&lt;/h2&gt;
+&lt;p&gt;I started with picking a guitar I wanted to make. Originally, I was recommended a Telecaster due to the simplicity of its body,
+but since I was going to use CNC machines for the manufacturing anyways, it didn’t really matter which guitar I went with.
+So I picked my favorite - a Les Paul.&lt;/p&gt;
+
+&lt;p&gt;Next, I had to actually design the model of it, which wasn’t terrible. Fortunately, there are schematics of the guitar available online, 
+so I had quick access to all the dimensions. There were a few tricky parts, like getting the shape of the top curve exactly, but in the end,
+the model was complete.&lt;/p&gt;
+
+&lt;p&gt;I used Fusion 360 for this, because it was free.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-1.jpg&quot; alt=&quot;Les Paul CAD Model&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;manufacturing&quot;&gt;Manufacturing&lt;/h2&gt;
+
+&lt;p&gt;After exporting all the necessary CAM files, it was time to move to the workshop.&lt;/p&gt;
+
+&lt;p&gt;For the body, I glued together two blanks of alder. I did the same with 2 blanks of hard maple for the curved top.
+The neck was going to be cut from a single blank of mahogany.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-alder.jpg&quot; alt=&quot;Body blank gluing together&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While the glue was setting, I decided to do a test cut on some scrap wood/MDF I found lying around the shop to test
+if my toolpaths were correct. The toolpaths for the body were fairly straightforward - I used a regular 1/4 in end mill to 
+route the channels for the wires, then used the same bit to cut the body shape from the blank. The top curve was a little more
+complicated; I used a 1/4 in ball end mill, and tried to find a good balance between precision and time. In the end, I settled
+for the toolpaths that would take around 30 min to finish, and while they produced a somewhat rough surface, some moderate sanding
+was enough to make it smooth.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-testcut.jpg&quot; height=&quot;600px&quot; /&gt; &lt;img src=&quot;../../../../../assets/files/jpg/les-paul-testcut2.jpg&quot; height=&quot;600px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;After making sure that the test cuts turned out fine, I went ahead and cut the real deal. The body turned out fairly well apart from a small chip 
+while the top was being cut due to (most probably) directionality of the wood grain and weak clamping. I fixed it by simply routing that part of the
+body clean and gluing a shim made out of the leftover maple I had. Apart from cosmetic defect, I do not expect it to influence the quality of
+the guitar in the end, so it should be fine.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-cutbody.jpg&quot; height=&quot;400px&quot; /&gt; &lt;img src=&quot;../../../../../assets/files/jpg/les-paul-cutneck.jpg&quot; height=&quot;400px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;I went ahead and sanded everything, and started shaping the binding to get it ready for glueing. I also had to fix some defects in the neck,
+as the cutting process was very rough (as you can see from the screenshot above). It ended up fine, and &lt;em&gt;in theory&lt;/em&gt; shouldn’t have any effect
+on the structural integrity - should be better, in fact… Les Paul guitars are notorious for neck issues.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-binding.jpg&quot; height=&quot;300px&quot; /&gt; &lt;img src=&quot;../../../../../assets/files/jpg/les-paul-neckissue.jpg&quot; height=&quot;300px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;I put it together for a test fit, and it was time to glue all the parts together. I had to readjust the parts and sand them a few times to get a very tight
+fit (thankfully, I left a generous amount of material during the cutting process, so I had room for a few mistakes).&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&quot;../../../../../assets/files/jpg/les-paul-together.jpg&quot; height=&quot;700px&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;During the process, however, my fretboard (that I ordered from eBay) snapped in 2,
+so I either had to glue it together, or order a new one. I… ordered a new one, since I wasn’t sure it was fixable. My roommate insisted that it was, so
+we tried it anyways, and I gifted it to him. Expecting a new project, perhaps?&lt;/p&gt;
+
+&lt;p&gt;At last, it was all ready.&lt;/p&gt;
+
+&lt;h2 id=&quot;painting&quot;&gt;Painting&lt;/h2&gt;
+
+&lt;p&gt;This part is a work in progress.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Introduction This project started when I enrolled into the university and first found out that there was a workshop. My roommate has built his own guitar in the past, and as I was learning the guitar, I decided to give it a go as well. At the time, I didn’t possess all the necessary skills to complete the project, but I was dead set on making it a reality.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/les-paul-1.jpg" /><media:content medium="image" url="/les-paul-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Aperture Science Sentry Turret</title><link href="/jekyll/update/2021/08/11/sentry-turret.html" rel="alternate" type="text/html" title="Aperture Science Sentry Turret" /><published>2021-08-11T13:11:22-05:00</published><updated>2021-08-11T13:11:22-05:00</updated><id>/jekyll/update/2021/08/11/sentry-turret</id><content type="html" xml:base="/jekyll/update/2021/08/11/sentry-turret.html">&lt;p&gt;Work in progress&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Work in progress</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/turret-1.jpg" /><media:content medium="image" url="/turret-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

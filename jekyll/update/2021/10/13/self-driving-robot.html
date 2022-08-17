@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Maksim Dziatlovich</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/portfolio.css">
+        <link rel="stylesheet" href="/assets/css/contact.css">
+        <link rel="icon" href="../favicon.png">
+    </head>
+    <body>
+        <div class="body__container">
+            <div class="header">
+    <header class="site-header" role="banner">
+        <div class="wrapper nav-bar">
+            <div class="site-title">
+                <div class="logo-wrapper-text">
+                    <p class="logo-name" style="color: white; font-weight: 200;">Maksim</p>
+                    <p class="logo-name" style="color: white; font-weight: 700;"> Dziatlovich</p>
+                    <p class="logo-name" style="color: rgb(214, 164, 255); font-weight: 700; margin-left: -3px">.</p>
+                </div>
+                <a class="author" rel="author" href="/"></a>
+            </div>
+            <div class="site-nav">
+                <div class="nav-right">
+                    <a class="page-link  link-inactive " href="/">Home</a>
+                    <a class="page-link  link-inactive " href="/projects">Engineering</a>
+                    <a class="page-link  link-inactive " href="/contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="site-header--dummy"></div>
+
+    <header class="site-header-bottom" role="banner">
+        <div class="wrapper nav-bar">
+            <div class="site-nav">
+                <div class="nav-right">
+                    <a class="page-link" href="/">
+                        <img
+                            width="19px"
+                            class="filter-white-svg"
+                            src=" /assets/icons/house-door.svg "
+                        />
+                    </a>
+                    <a class="page-link" href="/projects">
+                        <img
+                            width="19px"
+                            class="filter-white-svg"
+                            src=" /assets/icons/gear.svg "
+                        />
+                    </a>
+                    <a class="page-link" href="/contact">
+                        <img
+                            width="19px"
+                            class="filter-white-svg"
+                            src=" /assets/icons/telephone.svg "
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+            <div class="body__container__main">
+                <subheader class="showcase-post">
+    <div class="wrapper">
+        <div class="name">
+            <div class="regular-text">
+                <p style="font-size: 16px; letter-spacing: 1px; color: gray">2021-10-13 19:18:27 -0500</p>
+            </div>
+            <div class="large-text">
+                <span>Self-Driving Robot</span><span style="color: #6c5d7c;">.</span>
+            </div>
+            <p class="sub-title">
+                
+            </p>
+        </div>
+        <div class="separator">
+        </div>
+    </div>
+</subheader>
+<main class="post-content" aria-label="Content">
+    <div class="wrapper">
+        <h2 id="introduction">Introduction</h2>
+<p>This project started while I was taking an Advanced Mechatronics class towards my graduate degree, as a way to 
+test my skills and create something fun. After some consideration, I decided to try and design a fairly
+simple “self-driving car”, albeit the extent of “self-driving” is just to follow a marked path on a race track.
+The project took me about 2 months to complete from start to finish.</p>
+
+<h2 id="first-step">First step</h2>
+<p>I started by laying out the requirements for my project as well as how to meet them.
+I really wanted to achieve a few fairly simple things:</p>
+
+<ol>
+  <li>Be able to follow a line on a track with at least 80% accuracy in position;</li>
+  <li>Be easy to build;</li>
+  <li>Be easy to code</li>
+</ol>
+
+<p>The last step didn’t work particularly well, and it was wishful thinking on my part. I decided that it would be
+best to use two controllers for this project - “big brain” data processing one, for which I chose a RPi Pico,
+and a “barebones” commands giving one - a simple PIC32.</p>
+
+<h2 id="design-specifics">Design specifics</h2>
+<p>RPi Pico was going to collect the visual data from the camera attached to the robot to identify the environment,
+a line on the track, in particular. That data would then be fed into a PID controller which will tell the robot whether
+to go left or right. Since I didn’t want to deal with proper steering, I decided it would be most optimal to change 
+direction by changing the rotation of each wheel - so I went with a front-wheels-only design, where each wheel is managed
+run by its own motor.</p>
+
+<p>Each motor was then connected to an H-bridge, which would send the data to the RPi Pico, which in turn would be again fed into
+the PID controller. The output of that would then be sent to the PIC32 which was to drive the motors. The design was fairly
+straightforward in my mind, so I started working on it.</p>
+
+<h2 id="pcbs-and-cad">PCBs and CAD</h2>
+<p>I started by laying out designs for PCBs that would hold Pico and PIC; after estimating the dimensions of all the components,
+I threw a few ideas together for a prototype CAD model - I needed something that would be very easy to prototype and change when needed,
+so the requirements were:</p>
+
+<ol>
+  <li>Laser cut or 3D printed, preferrably the former</li>
+  <li>As few screws as possible, preferrably none</li>
+  <li>As light as possible, so probably made out of plastic</li>
+  <li>As easy to put together as possible</li>
+</ol>
+
+<p>I ultimately went with a design my professor advised me based on his experience of rapid prototyping.</p>
+
+<p><img src="../../../../../assets/files/png/self-driving-2.png" alt="CAD Model" /></p>
+
+<p>The next step was to design the PCBs. For space purposes, I went with a main board with a PIC32, and a daughter board with a Pico (albeit the
+hierarchy is only decided by size here). I threw together schematics, designed the PCBs, checked if they were fine, then ordered a few.</p>
+
+<p><img src="../../../../../assets/files/png/self-driving-3.png" alt="PIC32 PCB Schematic" /></p>
+
+<h2 id="assembly">Assembly</h2>
+<p>After the PCBs arrived, I went ahead and soldered all the components on them, checked if my test code still worked the same as it did on
+the breadboard that I put together while waiting for the PCBs. <strong>Spoiler:</strong> trying to get as clean of a soldering job as I could, I didn’t put
+enough solder on some contacts, so it didn’t work right away. Oh well!</p>
+<center>
+<img src="../../../../../assets/files/jpg/self-driving-3.jpg" width="300px" /> <img src="../../../../../assets/files/jpg/self-driving-4.jpg" width="300px" />
+</center>
+
+<p>I also laset cut my robot parts from black ABS plastic, and put everything together. Wheels were 3D printed (took a few tries), 2 motors were ordered online.
+All the other parts (the camera, the battery pack, screws, etc) I either had previously, or scavenged from the mechatronics lab.</p>
+
+<center>
+<img src="../../../../../assets/files/jpg/self-driving-5.jpg" width="300px" /> <img src="../../../../../assets/files/jpg/self-driving-6.jpg" width="300px" />
+</center>
+
+<h2 id="code">Code</h2>
+<p>It was then time to <em>actually</em> code this puppy.</p>
+
+<p>I am not going to have a long write-up regarding code here; instead, I’ll just list the structure and the algorithms I chose to go with.
+The majority of the code was written in Python, except for the PIC parts which were coded in C.</p>
+
+<p>The first step was camera input. To distinguish the track from the rest of the environment, I had a few ideas I could implement:</p>
+
+<ul>
+  <li>Machine learning</li>
+  <li>Some sort of image processing and line recognition that didn’t rely on ML</li>
+  <li>Straightforward hardcoded approach</li>
+</ul>
+
+<p>I went with the second option by taking the advantage of the goal of my project: I simply wanted the robot to follow the markings on the track. 
+Since the markings were going to be painted in a bright color, like green or white, against a dark track, I could search for those directly.
+I didn’t know which color I wanted to use, and I also wanted it to work with any color, so I went with the following approach:</p>
+
+<ol>
+  <li>Record an image from the camera</li>
+  <li>Convert the image from RGB to HSV</li>
+  <li>Take 3 height positions along the image, and isolate single-pixel lines along them</li>
+  <li>For each line, identify where the dark pixels started and ended, identifying thus the track</li>
+  <li>Look for bright pixels along the track</li>
+</ol>
+
+<p>Once I identified the markings in 3 positions along the image, I created a line of best fit to map out the route the robot would have to take.
+I then looked at whether the point closest to the bottom of the image (and thus closest to the robot) was off-center or not, computed that
+distance, and sent it to my position control. I checked how much my best-fit curved to identify a turn, and sent the proximity data of the turn
+to my current control (the closer the robot was to a turn, the more current I would send to one motor and less to the other, thus steering it along the right path). 
+Motors were driven using PWM.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>All in all, the project ended up being fairly successful. I achieved an average of 18.5% error in current control on my worst run (image below), 
+and overall less than 12% error in current control and an (estimated) less than 20% error in position control.</p>
+<center>
+<img src="../../../../../assets/files/png/self-driving-4.png" />
+</center>
+
+    </div>
+</main>
+
+            </div>
+            
+            <footer class="site-footer h-card">
+    <div class="wrapper footer__container">
+        <div class="footer-heading">
+            <div class="logo-wrapper-text">
+                <p class="logo-name" style="color: rgb(24, 24, 24); font-weight: 400;">Maksim</p>
+                <p class="logo-name" style="color: rgb(24, 24, 24); font-weight: 700;"> Dziatlovich</p>
+                <p class="logo-name" style="color: rgb(110, 84, 131); font-weight: 700; margin-left: -3px">.</p>
+            </div>
+        </div>
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Maksim Dziatlovich</li>
+                    <li><a class="u-email" href="mailto:mdziatlovich@gmail.com">mdziatlovich@gmail.com</a></li>
+                    <li class="p-name"><a href="tel:872-810-5249">(872) 810-5249</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+                <ul class="social-media-list">
+                    <li><a href="https://github.com/dziatlovich"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">dziatlovich</span></a></li>
+                    <!-- <li><a href="https://www.twitter.com/bakasigma"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bakasigma</span></a></li> -->
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-3">
+                <p>Undergraduate student at McCormick&#39;s School of Engineering at Nortwestern University. Mechanical engineer, graphic and motion designer.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+    </body>
+    
+</html>
